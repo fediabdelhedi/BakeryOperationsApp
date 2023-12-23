@@ -24,9 +24,6 @@ The Bakery Operations App allows the user (admin) to manage articles (ingredient
   - Bon Entree: Update ingredient stock and average unitary price after purchasing ingredients.
   - Bon Sortie: Generate new recipes based on desired produced quantity, checking ingredient availability and minimum stock alerts.
 
-## Future Development
-
-A second version of the application is planned with improved interfaces using either Metro Framework or Bunifo Framework.
 
 ## Installation
 
@@ -41,6 +38,20 @@ If you encounter an error related to the "Mark of the Web" when running the appl
 
 [video tutorial](https://www.youtube.com/watch?v=a3nIpiXXVxw&ab_channel=DarrenDoesEverything) for a visual guide on resolving the "Mark of the Web" error.
 
+# Developer's Note
+
+This application was developed to meet the specific needs of a friend in the baking field who will be using it on their personal laptop. The primary focus during development was to implement essential functionalities promptly.
+
+## Design Philosophy
+
+The application's design prioritized functionality over aesthetics. Due to time constraints and the urgent need for the application, intricate user interfaces were not the primary objective. As a result, you may find the interfaces to be basic and straightforward.
+
+## Future Enhancements
+
+Consider this version as a functional foundation. A second release is planned, which will focus on improving the application's visual appeal, potentially incorporating frameworks like Metro or Bunifo for a more polished user experience.
+
+We appreciate your understanding and hope you find the application beneficial for its intended purpose.
+
 
 ## Contact Information
 
@@ -52,5 +63,5 @@ Feel free to reach out for any questions or suggestions.
 
 ---
 
-**Note:** This is a basic template. You may want to customize it further based on additional details or specific sections you'd like to include.
+
 
