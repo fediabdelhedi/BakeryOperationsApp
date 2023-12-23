@@ -33,6 +33,14 @@ A second version of the application is planned with improved interfaces using ei
 1. Execute the SQL queries in the "sql_query" file to set up the database.
 2. Open the application with Visual Studio.
 3. In the `app.config` file, update the connection string with your SQL Server details.
+# Troubleshooting
+
+## "Mark of the Web" Issue
+
+If you encounter an error related to the "Mark of the Web" when running the application, watch this 2mins video to resolve it:
+
+[video tutorial](https://www.youtube.com/watch?v=a3nIpiXXVxw&ab_channel=DarrenDoesEverything) for a visual guide on resolving the "Mark of the Web" error.
+
 
 ## Contact Information
 
