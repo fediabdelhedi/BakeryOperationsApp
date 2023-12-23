@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gestionStockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BonsEntree">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="quantite" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="CoutUnitaireMoyen" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BonsSortie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="coutTotal" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="RecetteId" Type="int" Nullable="false" />
+    <Property Name="QuantiteProduite" Type="int" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailBonSortieSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantite" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="int" Nullable="false" />
+    <Property Name="NumBonsSortie" Type="int" Nullable="false" />
+    <Property Name="coutUnitaire" Type="decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="ProduitSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="quantiteStock" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="CoutMoyenUnitaire" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="quantiteMinimum" Type="decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="Recette">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QuantiteProduite" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecetteProduits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantite" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="int" Nullable="false" />
+    <Property Name="RecetteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="gestionStockModelStoreContainer">
+    <EntitySet Name="BonsEntree" EntityType="Self.BonsEntree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BonsSortie" EntityType="Self.BonsSortie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailBonSortieSet" EntityType="Self.DetailBonSortieSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProduitSet" EntityType="Self.ProduitSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recette" EntityType="Self.Recette" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecetteProduits" EntityType="Self.RecetteProduits" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

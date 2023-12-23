@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gestionStockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BonsEntree">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="quantite" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="CoutUnitaireMoyen" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BonsSortie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="coutTotal" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="RecetteId" Type="Int32" Nullable="false" />
+    <Property Name="QuantiteProduite" Type="Int32" Nullable="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailBonSortieSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantite" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="Int32" Nullable="false" />
+    <Property Name="NumBonsSortie" Type="Int32" Nullable="false" />
+    <Property Name="coutUnitaire" Type="Decimal" Scale="3" Precision="18" />
+  </EntityType>
+  <EntityType Name="ProduitSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="quantiteStock" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="CoutMoyenUnitaire" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="quantiteMinimum" Type="Decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="Recette">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuantiteProduite" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecetteProduit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantite" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="ProduitId" Type="Int32" Nullable="false" />
+    <Property Name="RecetteId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StockContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BonsEntrees" EntityType="Self.BonsEntree" />
+    <EntitySet Name="BonsSorties" EntityType="Self.BonsSortie" />
+    <EntitySet Name="DetailBonSortieSets" EntityType="Self.DetailBonSortieSet" />
+    <EntitySet Name="ProduitSets" EntityType="Self.ProduitSet" />
+    <EntitySet Name="Recettes" EntityType="Self.Recette" />
+    <EntitySet Name="RecetteProduits" EntityType="Self.RecetteProduit" />
+  </EntityContainer>
+</Schema>

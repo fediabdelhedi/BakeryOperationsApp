@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gestionStockModelStoreContainer" CdmEntityContainer="StockContainer">
+    <EntitySetMapping Name="BonsEntrees">
+      <EntityTypeMapping TypeName="gestionStockModel.BonsEntree">
+        <MappingFragment StoreEntitySet="BonsEntree">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="CoutUnitaireMoyen" ColumnName="CoutUnitaireMoyen" />
+          <ScalarProperty Name="ProduitId" ColumnName="ProduitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BonsSorties">
+      <EntityTypeMapping TypeName="gestionStockModel.BonsSortie">
+        <MappingFragment StoreEntitySet="BonsSortie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="coutTotal" ColumnName="coutTotal" />
+          <ScalarProperty Name="RecetteId" ColumnName="RecetteId" />
+          <ScalarProperty Name="QuantiteProduite" ColumnName="QuantiteProduite" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailBonSortieSets">
+      <EntityTypeMapping TypeName="gestionStockModel.DetailBonSortieSet">
+        <MappingFragment StoreEntitySet="DetailBonSortieSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="ProduitId" ColumnName="ProduitId" />
+          <ScalarProperty Name="NumBonsSortie" ColumnName="NumBonsSortie" />
+          <ScalarProperty Name="coutUnitaire" ColumnName="coutUnitaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProduitSets">
+      <EntityTypeMapping TypeName="gestionStockModel.ProduitSet">
+        <MappingFragment StoreEntitySet="ProduitSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="quantiteStock" ColumnName="quantiteStock" />
+          <ScalarProperty Name="CoutMoyenUnitaire" ColumnName="CoutMoyenUnitaire" />
+          <ScalarProperty Name="quantiteMinimum" ColumnName="quantiteMinimum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recettes">
+      <EntityTypeMapping TypeName="gestionStockModel.Recette">
+        <MappingFragment StoreEntitySet="Recette">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="QuantiteProduite" ColumnName="QuantiteProduite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecetteProduits">
+      <EntityTypeMapping TypeName="gestionStockModel.RecetteProduit">
+        <MappingFragment StoreEntitySet="RecetteProduits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="ProduitId" ColumnName="ProduitId" />
+          <ScalarProperty Name="RecetteId" ColumnName="RecetteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
