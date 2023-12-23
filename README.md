@@ -27,7 +27,7 @@ The Bakery Operations App allows the user (admin) to manage articles (ingredient
 
 ## Installation
 
-1. Execute the SQL queries in the "sql_query" file to set up the database.
+1. Execute the SQL queries in the "sqlQuery" file to set up the database.
 2. Open the application with Visual Studio.
 3. In the `app.config` file, update the connection string with your SQL Server details.
 # Troubleshooting
