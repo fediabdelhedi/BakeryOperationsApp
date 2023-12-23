@@ -1,0 +1,104 @@
+/****** so first create a database named gestionStock in your sql server then copy paste and execute this sql query  ******/
+
+USE [gestionStock]
+GO
+/****** Object:  Table [dbo].[BonsEntree]    Script Date: 24/11/2023 10:38:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BonsEntree](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[quantite] [decimal](18, 3) NULL,
+	[CoutUnitaireMoyen] [decimal](18, 3) NULL,
+	[ProduitId] [int] NOT NULL,
+ CONSTRAINT [PK_BonsEntree] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BonsSortie]    Script Date: 24/11/2023 10:38:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BonsSortie](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[coutTotal] [decimal](18, 3) NULL,
+	[RecetteId] [int] NOT NULL,
+	[QuantiteProduite] [int] NOT NULL,
+	[Num] [int] NOT NULL,
+ CONSTRAINT [PK_BonsSortie] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetailBonSortieSet]    Script Date: 24/11/2023 10:38:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetailBonSortieSet](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Quantite] [decimal](18, 3) NULL,
+	[ProduitId] [int] NOT NULL,
+	[NumBonsSortie] [int] NOT NULL,
+	[coutUnitaire] [decimal](18, 3) NULL,
+ CONSTRAINT [PK_DetailBonSortieSet] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ProduitSet]    Script Date: 24/11/2023 10:38:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProduitSet](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[nom] [nvarchar](max) NOT NULL,
+	[quantiteStock] [decimal](18, 3) NULL,
+	[CoutMoyenUnitaire] [decimal](18, 3) NULL,
+	[quantiteMinimum] [decimal](18, 3) NULL,
+ CONSTRAINT [PK_ProduitSet] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Recette]    Script Date: 24/11/2023 10:38:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Recette](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[nom] [nvarchar](max) NOT NULL,
+	[QuantiteProduite] [int] NOT NULL,
+ CONSTRAINT [PK_Recette] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RecetteProduits]    Script Date: 24/11/2023 10:38:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RecetteProduits](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Quantite] [decimal](18, 3) NULL,
+	[ProduitId] [int] NOT NULL,
+	[RecetteId] [int] NOT NULL,
+ CONSTRAINT [PK_RecetteProduits] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
